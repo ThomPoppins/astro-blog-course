@@ -1,20 +1,22 @@
 ---
 import MainHead from "../layout/MainHead.astro"
+import Nav from "../components/Nav.astro"
+import Footer from "../components/Footer.astro"
 
-interface Props {
-    pageTitle: string;
-    description: string,
-}
 
-const { pageTitle = "Title", description = "description" } = Astro.props as Props;
+// Style import
+import "../style/global.css"
+
+const { pageTitle = "Title", description = "description" } = Astro.props;
 ---
 
 <html lang="en">
 <MainHead {pageTitle} {description} />
 	<body>
-    <h1>{pageTitle}</h1>
+        <Nav />
         <slot>
             Default content
         </slot>
+        <Footer />
 	</body>
 </html>
